@@ -92,7 +92,12 @@ public static void RandomSelect( Connection  x,Object objOutputInterface, String
 	while (rs.next()){	
 		if (rs.getString(4).equalsIgnoreCase("IMAGE")){
 			//ojo en segundos
+			try{
 			OutI.AddImage(new File(rs.getString(1)), DuracionFoto/1000);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 		else if (rs.getString(4).equalsIgnoreCase("VIDEO"))
 		{

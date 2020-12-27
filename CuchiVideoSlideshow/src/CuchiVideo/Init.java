@@ -19,6 +19,7 @@ import lnkparser.LnkParser;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
+import CuchiVideo.Interfaces.FileMaker;
 import CuchiVideo.Interfaces.MovieMaker2014;
 import CuchiVideo.Tools.VideoTools;
 import CuchiVideo.logica.SelectMediaAlgorithm;
@@ -59,13 +60,13 @@ public class Init {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		if (args.length != 6){ 
-		System.out.println("La cagaste. Mal argumentos.");
-		//System.out.println(args[1]);
+		System.out.println("La cagaste. Mal argumentos." + args.length);
+		System.out.println(args[1]);
 		System.exit(1);}
 		
 		
 		String strFile="D:/test.db";
-		boolean escanea=false;
+		boolean escanea=true;
 		
 		File myFile = new File(strFile);
 		
@@ -103,7 +104,10 @@ public class Init {
 		stmt.executeUpdate( "UPDATE VIDEOS SET SELECCIONADA=0");
 		
 		//A insertar ficheros en el sistema
-		SelectMediaAlgorithm.RandomSelect(c,new MovieMaker2014(args[4]) , args);
+		//SelectMediaAlgorithm.RandomSelect(c,new MovieMaker2014(args[4]) , args);
+		SelectMediaAlgorithm.RandomSelect(c,new FileMaker(args[4]) , args);
+		
+		
 		System.out.println("FINAL FELIZ!!");
 		//cerramos la BD
 		 stmt.close();
@@ -209,7 +213,7 @@ public class Init {
 			System.out.println("DATE="+Date);
 			
 			if (Date.equalsIgnoreCase("")) {
-				throw new Exception("FECAH VACIA!!");}
+				throw new Exception("FECHA VACIA!!");}
 			//QUALITY
 			
 			
@@ -333,7 +337,7 @@ public class Init {
 		      pstmt.setString(1, file.getAbsolutePath());
 		      pstmt.executeUpdate();	
 		 //stmt.executeUpdate(sql);
-		 System.out.print("O");
+		 System.out.println("OUT" + file.getAbsolutePath());
 		return "";
 		}
 	}
