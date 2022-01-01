@@ -47,6 +47,8 @@ public class Init {
 	 * @throws MagicException 
 	 * @throws MagicMatchNotFoundException 
 	 * @throws MagicParseException 
+	 * 
+	 * Un ejemplo de params
 	 */
 	
 	static Connection c = null;

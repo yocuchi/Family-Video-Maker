@@ -28,15 +28,26 @@ public class VideoTools {
    
    //hay que tener el mediainfo instalado de:
    //http://mediaarea.net/en/MediaInfo/Download/Windows
-   //y poner la dll en el path
+   //y poner la dll en el path. pilla el primer instalador 
+   
+   
   //(still within the Project Properties dialog) Click on the “Run/Debug Settings”, 
    //select your Java class, then click on the “Edit…” button. Select the “Arguments” tab, 
    //then add -Djava.library.path=”C:\chilkatJava;${env_var:PATH}” where “C:\chilkatJava” is
    //the directory path containing the “chilkat.dll” file.
    
+   
+ //debug CUCHi
+    
    try {
-   	System.load("C:\\Program Files\\MediaInfo\\MediaInfo.dll");
-   } catch (UnsatisfiedLinkError e) {
+	 
+	   
+	   
+	  //parece que lo resolvi metiendo en la carpeta  C:\Users\yocuc\git\Family-Video-Maker\CuchiVideoSlideshow\target\classes\win32-x86
+	   //el media info de arquitecrau de 32 bits descargado de la web
+   	//System.load("C:\\Program Files\\MediaInfo\\MediaInfo.dll");
+   	//System.out.println("Librería Cargada");
+   } catch (Exception e) {
      System.err.println("Native code library failed to load.\n" + e);
      System.exit(1);
    }

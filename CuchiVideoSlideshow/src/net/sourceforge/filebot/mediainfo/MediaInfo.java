@@ -43,6 +43,7 @@ public class MediaInfo implements Closeable {
 		try {
 			handle = MediaInfoLibrary.INSTANCE.New();
 		} catch (LinkageError e) {
+			e.printStackTrace();
 			throw new MediaInfoException(e);
 		}
 	}
