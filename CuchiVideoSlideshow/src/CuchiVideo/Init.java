@@ -49,6 +49,10 @@ public class Init {
 	 * @throws MagicParseException 
 	 * 
 	 * Un ejemplo de params
+	 * 
+	 * 
+	 * "D:\Video Reyes 2021\input" 2500 2.5 4.5 "e:\Video Reyes 2021\seleccion" "C:\Users\Default\Music" 
+	 *
 	 */
 	
 	static Connection c = null;
@@ -68,8 +72,10 @@ public class Init {
 		
 		
 		String strFile="D:/test.db";
-		boolean escanea=true;
+		//CUCHI este booleano te puede alegrar la vida, porque no escanea todas las
+		//fotos, solamente una vez y luego con el sqlite es feliz
 		
+		boolean escanea=false;
 		File myFile = new File(strFile);
 		
 		if(myFile.exists() && escanea ){

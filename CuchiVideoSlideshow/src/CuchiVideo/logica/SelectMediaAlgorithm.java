@@ -126,7 +126,7 @@ public static void RandomSelect( Connection  x,Object objOutputInterface, String
 	File[] Mp3files = dir.listFiles(mp3Filter);
 	int PunteroTiempo =0;
 	
-	while (PunteroTiempo<DuracionTotal){
+	while (PunteroTiempo<DuracionTotal && (Mp3files.length>0)){
 	
 	File Selected_Song=	Mp3files[(int) (Mp3files.length*Math.random())];
 	System.out.println("Cancion seleccionada="+ Selected_Song);

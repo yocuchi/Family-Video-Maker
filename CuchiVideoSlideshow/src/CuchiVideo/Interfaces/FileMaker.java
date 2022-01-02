@@ -60,10 +60,12 @@ public class FileMaker implements VideoOutputInterface {
 		String FinalName= file.getName();
 		FinalName= this.counter + FinalName;
 		this.counter++;
+		FinalName=this.DestFolder + "/" + FinalName;
+		
 		
 		System.out.println("Fichero "+ file.getAbsolutePath() +" renombrado a " + FinalName);
 		try {
-		    FileUtils.copyFile(file, new File( this.DestFolder + "/" + FinalName));
+		    FileUtils.copyFile(file, new File( FinalName));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
