@@ -58,7 +58,7 @@ public class FileMaker implements VideoOutputInterface {
 	void CopytoDirAndRename (File file){
 		
 		String FinalName= file.getName();
-		FinalName= this.counter + FinalName;
+		FinalName= this.counter + "-"+FinalName;
 		this.counter++;
 		FinalName=this.DestFolder + "/" + FinalName;
 		
@@ -75,7 +75,7 @@ public class FileMaker implements VideoOutputInterface {
 	@Override
 	public void AddImage(File Img, double Duration) throws Exception {
 		System.out.println("====Inserted FILE:"+Img.getAbsolutePath());
-		//para los datos de tamaño
+		//para los datos de tamaï¿½o
 		CopytoDirAndRename (Img);
 		
 	}
@@ -83,7 +83,7 @@ public class FileMaker implements VideoOutputInterface {
 	@Override
 	public void AddVideo(File Video, double Duration, double init,double end, int width, int height) {
 		System.out.println("====Inserted VIDEO:"+Video.getAbsolutePath());
-		//para los datos de tamaño
+		//para los datos de tamaï¿½o
 		CopytoDirAndRename (Video);
 			
 		}
@@ -96,7 +96,7 @@ public class FileMaker implements VideoOutputInterface {
 	@Override
 	public void AddMusic(File Song, double Duration) {
 		System.out.println("====Inserted Music (NO IMPLEMENTADO):"+Song.getAbsolutePath());
-		//para los datos de tamaño
+		//para los datos de tamaï¿½o
 		
 			
 	}

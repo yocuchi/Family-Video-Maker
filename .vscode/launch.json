@@ -1,0 +1,78 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ConFFMPEG",
+            "request": "launch",
+            "mainClass": "CuchiVideo.Tools.ConFFMPEG",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "VideoInfoExtractor",
+            "request": "launch",
+            "mainClass": "CuchiVideo.Tools.VideoInfoExtractor",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Init",
+            "request": "launch",
+            "mainClass": "CuchiVideo.Init",
+            "projectName": "CuchiVideoSlideshow",
+            "args": [
+                "C:\\Users\\hernandezcfran\\OneDrive - Ayuntamiento de Madrid\\Escritorio\\Fotos Ordenar\\out\\2023",
+                "2500",
+                "2.5",
+                "4.5",
+                "C:\\Users\\hernandezcfran\\OneDrive - Ayuntamiento de Madrid\\Escritorio\\Seleccion Video Navidad",
+                "C:\\Users\\Default\\Music"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "FileMaker",
+            "request": "launch",
+            "mainClass": "CuchiVideo.Interfaces.FileMaker",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "MovieMaker2014",
+            "request": "launch",
+            "mainClass": "CuchiVideo.Interfaces.MovieMaker2014",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "TEstTrigger",
+            "request": "launch",
+            "mainClass": "CuchiVideo.TEstTrigger",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "TestMediaInfo",
+            "request": "launch",
+            "mainClass": "TestMediaInfo",
+            "projectName": "CuchiVideoSlideshow"
+        },
+        {
+            "type": "java",
+            "name": "tester",
+            "request": "launch",
+            "mainClass": "tester",
+            "projectName": "CuchiVideoSlideshow"
+        }
+    ]
+}

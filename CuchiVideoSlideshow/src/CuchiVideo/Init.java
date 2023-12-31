@@ -14,7 +14,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import lnkparser.LnkParser;
-
+import net.sf.jmimemagic.MagicException;
+import net.sf.jmimemagic.MagicMatchNotFoundException;
+import net.sf.jmimemagic.MagicParseException;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -71,11 +73,11 @@ public class Init {
 		System.exit(1);}
 		
 		
-		String strFile="D:/test.db";
+		String strFile="test.db";
 		//CUCHI este booleano te puede alegrar la vida, porque no escanea todas las
 		//fotos, solamente una vez y luego con el sqlite es feliz
 		
-		boolean escanea=false;
+		boolean escanea=true;
 		File myFile = new File(strFile);
 		
 		if(myFile.exists() && escanea ){
@@ -133,7 +135,7 @@ public class Init {
 		
 		 ResultSet rs = stmt.executeQuery( "SELECT count(*),avg(SIZE) FROM IMAGES;" );
 		 rs.next();
-		System.out.println("Procesadas correctamente "+ rs.getString(1) + "imagenes, con un tamaño medio de " +
+		System.out.println("Procesadas correctamente "+ rs.getString(1) + "imagenes, con un tamaï¿½o medio de " +
 		 rs.getString(2));
 		NumFotos=Integer.parseInt(rs.getString(1));
 		
@@ -141,7 +143,7 @@ public class Init {
 		 rs = stmt.executeQuery( "SELECT count(*),avg(SIZE),avg(LENGHT),avg(QUALITY) FROM VIDEOS;" );
 		 rs.next();
 		
-		 System.out.println("Procesados correctamente "+ rs.getString(1) + " videos, con un tamaño medio de " +
+		 System.out.println("Procesados correctamente "+ rs.getString(1) + " videos, con un tamaï¿½o medio de " +
 		 rs.getString(2)+", con una duracion media de "+ rs.getString(3)+", y una calidad media de "+ rs.getString(4));
 
 		
@@ -182,8 +184,8 @@ public class Init {
 	    	}
 
 	    	
-	        if (file.isFile()) {
-	        	//a añadir a la base de datos
+	        if (file.isFile() && file.length() >= 200 * 1024) {
+	        	//a aï¿½adir a la base de datos
 	        	try{
 	            InsertFile(file);
 	        	}

@@ -2,7 +2,7 @@
 package net.sourceforge.filebot.mediainfo;
 
 
-
+import net.sourceforge.filebot.mediainfo.MediaInfoLibrary;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class MediaInfo implements Closeable {
 	
 	public MediaInfo() {
 		try {
-			handle = MediaInfoLibrary.INSTANCE.New();
+			handle = net.sourceforge.filebot.mediainfo.MediaInfoLibrary.INSTANCE.New();
 		} catch (LinkageError e) {
 			e.printStackTrace();
 			throw new MediaInfoException(e);
