@@ -96,6 +96,7 @@ public class Init {
 		SetUp(strFile);
 		
 		if (escanea){
+			System.out.println("Comenzamos a escanear. i=Image y V=video");
 		//creamos la base de datos sqlite
 		CreaBD(strFile);
 		
@@ -185,6 +186,7 @@ public class Init {
 
 	    	
 	        if (file.isFile() && file.length() >= 200 * 1024) {
+				//System.out.println(file.getAbsoluteFile() + "size" +file.length());
 	        	//a a�adir a la base de datos
 	        	try{
 	            InsertFile(file);
@@ -192,7 +194,7 @@ public class Init {
 	        	catch(Exception e){
 	        		e.printStackTrace();
 	        	}
-	            salto++;
+	            salto++;//nueva linea
 	            if (salto%30==0)System.out.println();
 	        } else if (file.isDirectory()) {
 	            listf(file.getAbsolutePath());
@@ -220,7 +222,7 @@ public class Init {
 			//este se complica, puesto que la fecha buena es la de exif
 			String Date=ImageFechaFoto(file);
 			
-			System.out.println("DATE="+Date);
+			//System.out.println("DATE="+Date);
 			
 			if (Date.equalsIgnoreCase("")) {
 				throw new Exception("FECHA VACIA!!");}
@@ -288,7 +290,7 @@ public class Init {
 
 	private static String ImageFechaFoto(File file) throws ImageProcessingException, IOException{
 		//ya se que es foto
-		System.out.println("File:"+ file.getAbsolutePath());
+		//System.out.println("File:"+ file.getAbsolutePath());
 		Metadata metadata = ImageMetadataReader.readMetadata( file );
 		
 
@@ -310,7 +312,7 @@ public class Init {
             
         }
             
-        	//System.out.println( "EXIF is null" );
+        	System.out.println( "EXIF is null in "+ file.getAbsolutePath() );
             //VAMOS A POR FECHA DE MODIFICACION
         	System.out.print("X");
         	

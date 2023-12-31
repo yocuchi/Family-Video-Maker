@@ -23,9 +23,9 @@ public class VideoTools {
 	 */
     public static long[] GetVideoLenghtAndRate(File file) throws Exception {
    //Hay que tener el FFMPEG en el PATH, realmente ffprobe
-    	System.out.println("FIle:"+ file.getAbsolutePath());
+    	//System.out.println("FIle:"+ file.getAbsolutePath());
    long [] retorno = new long [4]; 	
-   String command = "ffprobe -show_entries stream=width,height,duration,bit_rate -select_streams v:0 -i  \"" + file.getAbsolutePath() + "\"";
+   String command = "ffprobe -show_entries stream=width,height,duration,bit_rate -v error -i  \"" + file.getAbsolutePath() + "\"";
             //System.out.println(command);
             
             // Ejecutar el comando y obtener el flujo de salida
@@ -50,17 +50,21 @@ public class VideoTools {
                 } else if (line.startsWith("height=")) {
                     retorno[3]  = Long.parseLong(line.substring(7));
                 } else if (line.startsWith("duration=")) {
-                    System.out.println(line.substring(9));
+                    //System.out.println(line.substring(9));
                     retorno[0]  = Math.round(Double.parseDouble(line.substring(9)));
                 }
                 else if (line.startsWith("bit_rate=")) {
+                  try{
                     retorno[1]  = Long.parseLong(line.substring(9));
+                    } catch(Exception e){
+                        //e.printStackTrace();
+                    }
                 }
             }
 
             // Esperar a que termine el proceso
-            int exitCode = process.waitFor();
-            System.out.println(Arrays.toString(retorno));
+            //int exitCode = process.waitFor();
+           // System.out.println(Arrays.toString(retorno));
 
   return retorno;
   }
