@@ -30,14 +30,7 @@
             "request": "launch",
             "mainClass": "CuchiVideo.Init",
             "projectName": "CuchiVideoSlideshow",
-            "args": [
-                "C:\\Users\\hernandezcfran\\OneDrive - Ayuntamiento de Madrid\\Escritorio\\Fotos Ordenar\\out\\2023",
-                "2500",
-                "2.5",
-                "4.5",
-                "C:\\Users\\hernandezcfran\\OneDrive - Ayuntamiento de Madrid\\Escritorio\\Seleccion Video Navidad",
-                "C:\\Users\\Default\\Music"
-            ]
+            "args": ""
         },
         {
             "type": "java",

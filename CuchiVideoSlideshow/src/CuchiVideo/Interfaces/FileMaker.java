@@ -37,10 +37,14 @@ public class FileMaker implements VideoOutputInterface {
 	
 	File DestFolder;
 	int counter;
+	int counter_video;
+	int counter_photo;
 	
 	public FileMaker(String DestFolder) throws Exception{
 		this.DestFolder=new File(DestFolder);
 		this.counter=0;
+		this.counter_photo=0;
+		this.counter_video=0;
 		//vaciar el DestFolder
 		
 		/*if (isDirEmpty(Paths.get(getClass().getResource(DestFolder).toURI()))){
@@ -74,8 +78,9 @@ public class FileMaker implements VideoOutputInterface {
 	}
 	@Override
 	public void AddImage(File Img, double Duration) throws Exception {
-		System.out.println("====Inserted FILE:"+Img.getAbsolutePath());
+		System.out.println("====Inserted PHOTO:"+Img.getAbsolutePath());
 		//para los datos de tama�o
+		this.counter_photo++;
 		CopytoDirAndRename (Img);
 		
 	}
@@ -85,7 +90,7 @@ public class FileMaker implements VideoOutputInterface {
 		System.out.println("====Inserted VIDEO:"+Video.getAbsolutePath());
 		//para los datos de tama�o
 		CopytoDirAndRename (Video);
-			
+		this.counter_video++;	
 		}
 
 	
@@ -101,7 +106,14 @@ public class FileMaker implements VideoOutputInterface {
 			
 	}
 	
-	
+	public void Print_Stats() throws Exception{
+		System.out.println("Photos inserted:"+ this.counter_photo);
+		System.out.println("Videos inserted:"+ this.counter_video);
+		System.out.println("");
+		
+		 // Use a Transformer for output
+
+	}
 	/**
 	 * @param args
 	 * @throws Exception 
