@@ -1,28 +1,12 @@
 package CuchiVideo.Interfaces;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.imageio.ImageIO;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.io.FileUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
 
 import CuchiVideo.VideoOutputInterface;
 
@@ -36,13 +20,13 @@ public class FileMaker implements VideoOutputInterface {
 	
 	
 	File DestFolder;
-	int counter;
+	String counter; // Cambiado a String
 	int counter_video;
 	int counter_photo;
 	
 	public FileMaker(String DestFolder) throws Exception{
 		this.DestFolder=new File(DestFolder);
-		this.counter=0;
+		this.counter="000001"; // Inicializado como el primer número con ceros a la izquierda
 		this.counter_photo=0;
 		this.counter_video=0;
 		//vaciar el DestFolder
@@ -63,7 +47,7 @@ public class FileMaker implements VideoOutputInterface {
 		
 		String FinalName= file.getName();
 		FinalName= this.counter + "-"+FinalName;
-		this.counter++;
+		this.counter = String.format("%06d", Integer.parseInt(this.counter) + 1); // Incrementar y formatear con ceros a la izquierda
 		FinalName=this.DestFolder + "/" + FinalName;
 		
 		

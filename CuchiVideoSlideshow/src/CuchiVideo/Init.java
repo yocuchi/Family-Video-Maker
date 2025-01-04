@@ -88,7 +88,8 @@ public class Init {
         }
 
         String strFile = "test.db"; // Nombre del archivo de la base de datos
-        boolean escanea = true; // Bandera para determinar si se escanean los archivos
+        boolean escanea = false; // Bandera para determinar si se escanean los archivos
+		
 
 		
         File myFile = new File(strFile); // Crea un objeto File para el archivo de la base de datos
